@@ -76,6 +76,17 @@
       })
       console.log(ar2) //[4, 8, 12, 16, 20, 24, 28]
       console.log(arr2) //[1,2,3,4,5,6,7]
+      /* sort()*/
+      var points = [40,100,1,5,25,10];
+      points.sort(function(a,b){return a-b});
+      console.log(points)
+      //排序结果: 1,5,10,25,40,100
+      var arr = [23,43,54,656,45,53,43,23,4,5,6,4,5]
+      var s = new Set(arr)
+      s = [...s]
+      s.sort((a,b)=>(a-b))
+      console.log(s)  // [ 4, 5, 6, 23, 43, 45, 53, 54, 656 ]
+
     </script>
   </body>
 </html>
