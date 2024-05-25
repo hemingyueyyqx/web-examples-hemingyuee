@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .nav {
+        display: flex;
+        list-style: none;
+        background-color: rgb(188, 21, 21);
+        width: 100%;
+        justify-content: center;
+      }
+      .nav a {
+        color: white;
+        text-decoration: none;
+        display: block;
+        padding: 10px 25px;
+        cursor: pointer;
+      }
+      .nav a:hover {
+        color: orange;
+      }
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 150px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        list-style-type: square;
+      }
+      .dropdown:hover .dropdown-menu {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <ul class="nav">
+        <li><a href="#">首页</a></li>
+        <li class="dropdown">
+          <a href="#">机构设置</a>
+          <ul class="dropdown-menu">
+            <li>教务运行中心</li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">规章制度</a>
+          <ul class="dropdown-menu">
+            <li>专业培养</li>
+            <li>课程教材</li>
+            <li>实习实践</li>
+            <li>教学运行</li>
+            <li>本科招生</li>
+            <li>非学历教育</li>
+            <li>教师发展</li>
+            <li>转专业制度</li>
+          </ul>
+        </li>
+        <li><a href="#">办事指南</a></li>
+        <li class="dropdown">
+          <a href="#">非学历教育</a>
+          <ul class="dropdown-menu">
+            <li>项目立项公开</li>
+            <li>收费标准公示</li>
+            <li>项目信息公开</li>
+          </ul>
+        </li>
+        <li><a href="https://jwc.nefu.edu.cn/jwxt.htm">教务系统</a></li>
+        <li><a href="http://xxzx.nefu.edu.cn/">学习平台</a></li>
+        <li><a href="#">教学周历</a></li>
+        <li class="dropdown">
+          <a href="#">下载专区</a>
+          <ul class="dropdown-menu">
+            <li>教师文件</li>
+            <li>学生文件</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

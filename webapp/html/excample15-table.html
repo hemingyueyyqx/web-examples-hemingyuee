@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      span {
+        border-radius: 8px;
+        color: white;
+        padding: 10px 15px;
+        display: inline-block;
+      }
+      span.label-success {
+        background-color: green;
+      }
+      span.label-warning {
+        background-color: orange;
+      }
+      /*全局table属性*/
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      table th,
+      table td {
+        text-align: center;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+      }
+      tbody tr:nth-child(odd) {
+        background-color: #f2f2f2;
+      }
+      /* 超链接按钮*/
+      a.btn {
+        background-color: rgb(211, 67, 67);
+        color: white;
+        padding: 10px 25px;
+        text-decoration: none;
+        display: inline-block;
+        border-radius: 8px;
+      }
+      a.btn:hover {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h2>学生信息表</h2>
+      <p>
+        说明：以下为2022级学生名单，共5人，
+        <span class="label-success">成功加载4人</span>
+        。
+        <span class="label-warning">警告：列表不包含降级学生</span>
+        。
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>姓名</th>
+            <th>学号</th>
+            <th>性别</th>
+            <th>学院</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>王明</td>
+            <td>2022209765</td>
+            <td>男</td>
+            <td>计控学院</td>
+            <td>
+              <a href="#" class="btn">修改</a>
+              <a href="#" class="btn">删除</a>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>张莉</td>
+            <td>2022987654</td>
+            <td>女</td>
+            <td>经管学院</td>
+            <td>
+              <a href="#" class="btn">修改</a>
+              <a href="#" class="btn">删除</a>
+            </td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>李秋</td>
+            <td>2022804568</td>
+            <td>女</td>
+            <td>机电学院</td>
+            <td>
+              <a href="#" class="btn">修改</a>
+              <a href="#" class="btn">删除</a>
+            </td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>赵刚</td>
+            <td>2022298010</td>
+            <td>男</td>
+            <td>材料学院</td>
+            <td>
+              <a href="#" class="btn">修改</a>
+              <a href="#" class="btn">删除</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

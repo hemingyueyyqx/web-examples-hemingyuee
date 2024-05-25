@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css_reset.css" />
+    <style>
+      main {
+        border: solid 5px silver;
+        /* 声明容器 */
+        display: inline-grid;
+        /* 划分行列 */
+        grid-template-rows: 100px 100px;
+        grid-template-columns: 100px 100px 100px;
+      }
+
+      main div {
+        background: blueviolet content-box;
+        padding: 10px;
+        border: 1px #000 dashed;
+        text-align: center;
+        line-height: 80px;
+        color: #fff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+    </main>
+  </body>
+</html>

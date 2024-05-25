@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .nav > p {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>JavaScript iin Body</h2>
+    <p id="demo">A paragraph.</p>
+    <button type="button" onclick="myFunction()"></button>
+    <div id="demo1"></div>
+    <hr />
+    <button type="button" onclick="show()">点击获取JS对象中的值</button>
+    <div id="demo3">被替换为JS对象中的值</div>
+    <hr />
+    <div id="arrays"></div>
+    <hr />
+    <button type="button" onclick="showAlert()">点击弹出警告框</button>
+    <hr />
+    <!--将代码直接写在事件方法-->
+    <p id="demo4">ufhiweuh</p>
+    <button type="button" onclick="document.getElementById('demo4').innerHTML = 5+6">Try it</button>
+    <hr />
+    <h1 onclick="changeHeadText(this)">点击此标题内容会被修改</h1>
+    <hr />
+    <p>输入的英文字母基于onkeyup事件，自动转为大写</p>
+    <input type="text" onkeyup="upperCase(this)" />
+    <hr />
+    <div>
+      <button type="button" onclick="changeInputType()">点击修改输入框为checkbox</button>
+      <br />
+      输入框：
+      <input type="text" name="username" />
+      <br />
+    </div>
+    <hr />
+    <form id="register">
+      <label>
+        <input type="checkbox" onchange="checkAgree(this)" />
+        已阅读并同意条款
+      </label>
+      <br />
+      <button type="submit" disabled>提交</button>
+    </form>
+    <hr />
+    <div class="nav">
+      <button type="button" onclick="changeColor()">点击随机生成颜色</button>
+      <br />
+      <p>Lorem ipsum dolor sit amet.</p>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+    </div>
+    <hr />
+    <div>
+      <p>选择课程后，传递ID值，从JS数组中过滤出对象，显示在下面</p>
+      <select name="course" onchange="loopFilter(this.value)">
+        <option></option>
+        <option value="1">Java</option>
+        <option value="2">C++</option>
+      </select>
+      <span id="teacherName"></span>
+    </div>
+    <script>
+      /* 改写内容 */
+      function myFunction() {
+        document.getElementById('demo').innerHTML = 'My First JavaScript'
+      }
+      /* 基于箭头函数重写*/
+      let toCelsius = (f) => {
+        return (5 / 9) * (f - 32)
+      }
+      document.getElementById('demo1').innerHTML = toCelsius(77)
+      //Json 通过文本描述JS对象，方便转换JS对象传递操作，属性以键值对保存，大括号，分号，双引号，逗号，方括号（数组），方法
+      let person = {
+        firstName: 'John',
+        lastName: 'Doe',
+        id: 5566,
+        getFullName() {
+          return `${this.firstName}/${this.lastName}`
+        }
+      }
+      let show = () => {
+        document.getElementById('demo3').innerHTML = person.getFullName()
+      }
+      /* For Loop*/
+      let text = ' '
+      for (let i = 0; i < 5; i++) {
+        text += `The number is ${i} <br>`
+      }
+      document.getElementById('arrays').innerHTML = text
+      /* 弹出警告框*/
+      let showAlert = () => {
+        window.alert(5 + 6)
+      }
+      /* 在代码位置输出*/
+      document.write(11)
+      /* 控制台输出*/
+      console.log(5 + 6)
+      /* 标题内容会被修改*/
+      let changeHeadText = (h) => {
+        h.innerHTML = 'Oooooops!'
+      }
+      /* 将输入在输入框的字母转为大写*/
+      let upperCase = (input) => {
+        input.value = input.value.toUpperCase()
+      }
+      /* 将输入框转为复选框 */
+      let changeInputType = () => {
+        let input = document.querySelector('input[name = username]')
+        input.type = input.type === 'text' ? 'checkbox' : 'text'
+      }
+      /* 只有同意条款才允许提交 */
+      let checkAgree = (c) => {
+        let submitButton = document.querySelector('#register button[type = submit]')
+        submitButton.disabled = !c.checked
+      }
+      /* 修改每一个p元素中的style属性中的color属性*/
+      /* querySelectorAll()方法，基于css选择器,返回的是集合，不是数组*/
+      let changeColor = () => {
+        let ps = document.querySelectorAll('div.nav > p')
+        //四舍五入生成一个0-255的随机数
+        let r = Math.round(Math.random() * 255)
+        let g = Math.round(Math.random() * 255)
+        let b = Math.round(Math.random() * 255)
+        //修改全部字体色
+        ps.forEach((p) => {
+          //基于字符串模板，避免使用加号拼接字符串与变量
+          p.style.color = `rgb(${r},${g},${b})`
+        })
+      }
+      /* >选择课程后，传递ID值，从JS数组中过滤出对象，显示在下面 */
+      let loopFilter = (id) => {
+        let courses = [
+          { id: 1, name: 'Java', teacher: 'BO' },
+          { id: 2, name: 'C++', teacher: 'SUN' }
+        ]
+        let course = courses.find((c) => c.id == id)
+        document.getElementById('teacherName').innerHTML = course != null ? course.teacher : ''
+      }
+      /* splice()函数*/
+      let array = [0, 1, 2, 3, 4, 5, 6]
+      document.write('<br>' + '原数组为：' + array + '<br />')
+      let arrBack = array.splice(2)
+      document.write('array：', array + '<br />')
+      document.write('arrBack：', arrBack)
+      let array1 = [0, 1, 2, 3, 4, 5, 6]
+      document.write('<br>' + '原数组为：' + array1 + '<br />')
+      let arrBack1 = array1.splice(-3)
+      document.write('array：', array1 + '<br />')
+      document.write('arrBack：', arrBack1)
+
+      let array2 = [0, 1, 2, 3, 4, 5, 6]
+      document.write('<br>' + '原数组为：' + array2 + '<br />')
+      let arrBack2 = array2.splice(2, 1)
+      document.write('array：', array2 + '<br />')
+      document.write('arrBack：', arrBack2)
+      let array3 = [0, 1, 2, 3, 4, 5, 6]
+      document.write('原数组为：' + array3 + '<br />')
+      let arrBack3 = array3.splice(2, 0, 8, 9, 7)
+      document.write('array：', array3 + '<br />')
+      document.write('arrBack：', arrBack3)
+      const array4 = [1, 2, 3]
+      console.log(array4.includes(2)) //true
+      console.log(array4.includes(2, 2)) //false
+      const str1 = 'hello world'
+      console.log(str1.includes('world', 2))
+      let cid = 2
+      let hid = 1
+      let res = '/courses/' + cid + '/homework/' + hid
+      let res2 = `/courses/${cid}/homework/${hid}`
+      let length = 16 //Number
+      let lastName = 'Johnson' //String
+      let x = { firstName: 'John', lastName: 'Doe' } //Object
+      let cars = ['Saab', 'Volvo', 'BMW']
+    </script>
+  </body>
+</html>

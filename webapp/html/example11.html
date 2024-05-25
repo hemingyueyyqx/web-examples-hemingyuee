@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div.tran1 {
+        width: 100px;
+        height: 100px;
+        background: red;
+        transition: width 2s, height 4s;
+      }
+      div.tran1:hover {
+        width: 300px;
+        height: 300px;
+      }
+      div.translate {
+        width: 300px;
+        height: 100px;
+        background-color: yellow;
+        border: 1px solid black;
+        transition: transform 1s;
+      }
+      div.translate:hover {
+        transform: translate(50px, 100px);
+      }
+      div.rotate {
+        width: 300px;
+        height: 100px;
+        background-color: yellow;
+        border: 1px solid black;
+        transition: transform 2s;
+      }
+      div.rotate:hover {
+        transform: rotate(1080deg);
+      }
+      div.scale {
+        width: 300px;
+        height: 100px;
+        background-color: yellow;
+        border: 1px solid black;
+        transition: transform 1s;
+      }
+      div.scale:hover {
+        transform: scale(2, 3);
+      }
+      .dropdown-1 {
+        position: relative;
+        display: inline-block;
+      }
+      .dropdown-1 .dropdown-menu {
+        display: none;
+        position: absolute;
+        background: red;
+      }
+      .dropdown-1:hover .dropdown-menu {
+        display: block;
+      }
+      .dropdown-2 {
+        position: relative;
+        display: inline-block;
+      }
+      button.dropdown-toggle-2 {
+        background-color: green;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+      }
+      .dropdown-menu-2 {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      }
+      .dropdown-2:hover .dropdown-menu-2 {
+        display: block;
+      }
+      h1.text {
+        text-shadow: 2px 2px 5px red;
+      }
+      h1.text2 {
+        color: white;
+        text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+      }
+      div.card {
+        width: 250px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        text-align: center;
+      }
+      div.header {
+        background-color: pink;
+        color: white;
+        padding: 10px;
+        font-size: 3em;
+        font-size: bold;
+      }
+      div.container {
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tran1">Lorem, ipsum dolor.</div>
+  </body>
+  <div class="dropdown-1">
+    <span>Lorem, ipsum dolor.</span>
+    <div class="dropdown-menu">
+      <p>Lorem, ipsum dolor.</p>
+    </div>
+  </div>
+  <br />
+  <br />
+  <br />
+  <br />
+  <div class="dropdown-2">
+    <button class="dropdown-toggle-2">Mouse over me</button>
+    <div class="dropdown-menu-2">
+      <ul>
+        <li>Link 1</li>
+        <li>Link 2</li>
+        <li>Link 3</li>
+      </ul>
+    </div>
+  </div>
+  <br />
+  <div>
+    <h1 class="text">Lorem, ipsum dolor.</h1>
+    <h1 class="text2">Lorem ipsum dolor sit.</h1>
+  </div>
+  <br />
+  <div class="card">
+    <div class="header">
+      <p>20</p>
+    </div>
+    <div class="container">
+      <p>May,2024</p>
+    </div>
+  </div>
+</html>

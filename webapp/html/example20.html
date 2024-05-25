@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        max-width: var(--container-max-width);
+        margin: auto;
+        border: 2px solid red;
+        background: indigo;
+        min-height: 100vh;
+      }
+      @media (min-width: 576px) {
+        :root {
+          --container-max-width: 540px;
+        }
+      }
+      @media (min-width: 768px) {
+        :root {
+          --container-max-width: 720px;
+        }
+      }
+      @media (min-width: 992px) {
+        :root {
+          --container-max-width: 960px;
+        }
+      }
+      @media (min-width: 1200px) {
+        :root {
+          --container-max-width: 1140px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <p style="color: white">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit ad, corrupti saepe voluptates
+        cum facilis?
+      </p>
+    </div>
+  </body>
+</html>

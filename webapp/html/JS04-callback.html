@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h1>Lorem, ipsum dolor.</h1>
+    </div>
+    <script>
+      document.write(6 + 9)
+      console.log(1)
+      function add(num1, num2, callback) {
+        var sum = num1 + num2
+        callback(sum)
+      }
+
+      function print(num) {
+        console.log(num)
+      }
+      add(1, 2, print) //3
+      function add1(num1, num2, callback) {
+        var sum = num1 + num2
+        callback(sum)
+      }
+
+      add1(3, 4, function (sum) {
+        console.log(sum)
+      })
+    </script>
+  </body>
+</html>

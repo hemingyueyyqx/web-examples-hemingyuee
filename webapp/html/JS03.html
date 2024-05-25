@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Convert Input to Uppercase</title>
+  </head>
+  <body>
+    <p>当 2s 后输入框没有输入时，将输入字母转为大写。</p>
+    <input
+      type="text"
+      id="textInput"
+      onkeyup="x.onkeyupF(this)"
+      onkeydown="x.onkeydownF()"
+      placeholder="输入任意字母"
+      style="width: 100%" />
+
+    <script>
+      const todo = () => {
+        let timer1
+        onkeydownF = () => {
+          clearTimeout(timer1)
+        }
+        onkeyupF = (e1) => {
+          timer1 = setTimeout(() => {
+            e1.value = e1.value.toUpperCase()
+          }, 2000)
+        }
+        return { onkeyupF, onkeydownF }
+      }
+      const x = todo()
+    </script>
+  </body>
+</html>

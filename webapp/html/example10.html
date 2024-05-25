@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #float p {
+        border: 1px solid red;
+        display: flow-root;
+      }
+      #float img {
+        float: left;
+        width: 270px;
+        height: 200px;
+        margin-left: 15px;
+        margin-right: 15px;
+      }
+      div.relative {
+        position: relative;
+        width: 400px;
+        height: 200px;
+        border: 3px solid #73ad21;
+      }
+      div.fixed {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: 300px;
+        border: 3px solid #73ad21;
+      }
+      div.absolute {
+        position: absolute;
+        top: 80px;
+        right: 0;
+        width: 200px;
+        height: 100px;
+        border: 3px solid #73ad21;
+      }
+      div.main {
+        position: relative;
+        width: 400px;
+        height: 200px;
+        border: 3px solid #73ad21;
+      }
+      button.icon {
+        position: absolute;
+        right: 15px;
+        bottom: 15px;
+        background-color: yellow;
+      }
+      div.b1 {
+        display: inline-block;
+        width: 200px;
+        border: 1px solid red;
+        margin: 20px;
+        padding: 15px;
+      }
+      div.b2 {
+        display: inline-block;
+        box-sizing: border-box;
+        width: 200px;
+        border: 1px solid red;
+        margin: 20px;
+        padding: 15px;
+      }
+      #sidebar2 {
+        /* 容器宽度*/
+        width: 200px;
+        box-sizing: border-box;
+      }
+      #sidebar2 h2 {
+        margin: 0;
+      }
+      #sidebar2 h2 a {
+        display: block;
+        background: #3185bf;
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+      }
+      #sidebar2 ul {
+        margin: 0;
+        padding: 0;
+        background: #f1f1f1;
+      }
+      #sidebar2 li a {
+        display: block;
+        padding: 8px 15px;
+        color: #000;
+        text-decoration: none;
+        transition: transform 0.5s;
+      }
+      #sidebar2 li a:hover {
+        background: #03a9f4;
+        color: white;
+        transform: scale(1.1);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="float">
+      <p>
+        <img src="../../resources/images/dog.jpg" alt="dog" />
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque facilis in magni beatae
+        necessitatibus laudantium delectus, nobis alias soluta, nam animi totam error quisquam
+        aliquid ex hic molestiae harum laboriosam inventore optio repellat ducimus esse. Ipsam,
+        praesentium dignissimos reprehenderit quidem vitae quibusdam soluta quisquam quaerat ex?
+        Dignissimos, itaque rerum. A quas sunt aliquid incidunt omnis quibusdam sit dolor vel
+        similique atque possimus nesciunt amet asperiores, itaque hic repellendus fugiat officia
+        assumenda dicta nobis perspiciatis quae? Exercitationem ut delectus voluptatibus? Labore
+        iure ipsa, et veritatis iusto fuga blanditiis omnis impedit a neque deleniti nihil dolorum
+        laborum, optio, voluptatum quis natus enim?
+      </p>
+      <p style="clear: left">Lorem, ipsum dolor.</p>
+    </div>
+    <div class="relative">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum cum ea atque vero reiciendis
+      fugiat qui. Alias laudantium saepe quasi.
+      <div class="absolute">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, amet?
+      </div>
+    </div>
+    <div class="absolute">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, amet?</div>
+    <br />
+    <div class="main">
+      <p>在指定容器右下角，模拟一个添加按钮</p>
+      <button class="icon">+</button>
+    </div>
+    <div class="b1">
+      <ul>
+        <li>List Item 1</li>
+        <li>List Item 2</li>
+        <li>List Item 3</li>
+        <li>List Item 4</li>
+        <li>List Item 5</li>
+      </ul>
+    </div>
+
+    <div class="b2">
+      <ul>
+        <li>List Item 1</li>
+        <li>List Item 2</li>
+        <li>List Item 3</li>
+        <li>List Item 4</li>
+        <li>List Item 5</li>
+      </ul>
+    </div>
+    <br />
+    <div id="sidebar2">
+      <h2>
+        <a href="">云技术管理</a>
+      </h2>
+      <ul>
+        <li><a href="#">云服务器</a></li>
+        <li><a href="#">云数据库</a></li>
+        <li><a href="#">负载平衡</a></li>
+      </ul>
+    </div>
+  </body>
+</html>

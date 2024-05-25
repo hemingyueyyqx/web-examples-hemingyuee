@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let myArray = [1, 2, 3, 4, 5]
+      /* forEach */
+      myArray.forEach(function (value) {
+        console.log(value)
+      })
+      /* for-in*/
+      var obj = { a: 1, b: 2, c: 3 }
+      for (var prop in obj) {
+        console.log('obj.' + prop + '=' + obj[prop])
+      }
+      /*for-of*/
+      let iterable = [10, 20, 30]
+      for (const value of iterable) {
+        console.log(value)
+      }
+      /* 循环一个类型化数组*/
+      let iterable1 = new Uint8Array([0x00, 0xff])
+      for (let value of iterable1) {
+        console.log(value)
+      }
+      // 0
+      // 255
+      /*循环一个Map*/
+      let iterable2 = new Map([
+        ['a', 1],
+        ['b', 2],
+        ['c', 3]
+      ])
+      for (let [key, value] of iterable2) {
+        console.log(value)
+      }
+      // 1
+      // 2
+      // 3
+      for (let entry of iterable2) {
+        console.log(entry)
+      }
+      // [a, 1]
+      // [b, 2]
+      // [c, 3]
+      /*循环一个set*/
+      let iterable3 = new Set([1, 1, 2, 2, 3, 3])
+      for (let value of iterable3) {
+        console.log(value)
+      }
+      // 1
+      // 2
+      // 3
+      /* find() */
+      var arr1 = [1, 2, 3, 4, 5, 6, 7]
+      var ar1 = arr1.find(function (elem) {
+        return elem > 5
+      })
+      console.log(ar1) //6
+      console.log(arr1) //[1,2,3,4,5,6,7]
+      /* filter()*/
+      var arr = [1, 2, 3, 4, 5, 6, 7]
+      var ar = arr.filter(function (elem) {
+        return elem > 5
+      })
+      console.log(ar) //[6,7]
+      console.log(arr) //[1,2,3,4,5,6,7]
+      /* map()*/
+      var arr2 = [1, 2, 3, 4, 5, 6, 7]
+      var ar2 = arr2.map(function (elem) {
+        return elem * 4
+      })
+      console.log(ar2) //[4, 8, 12, 16, 20, 24, 28]
+      console.log(arr2) //[1,2,3,4,5,6,7]
+    </script>
+  </body>
+</html>

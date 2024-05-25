@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #flex {
+        display: flex;
+        background-color: dodgerblue;
+      }
+      #flex > div {
+        background-color: #f1f1f1;
+        width: 100px;
+        margin: 10px;
+        text-align: center;
+        line-height: 75px;
+        font-size: 30px;
+      }
+      #flex.grow-1 {
+        flex-grow: 1;
+      }
+      #flex.grow-2 {
+        flex-grow: 2;
+      }
+      #container2 {
+        background-color: dodgerblue;
+        padding: 15px;
+        display: flex;
+        align-items: start;
+      }
+      #container2 div.sidebar {
+        background-color: #f1f1f1;
+        border: 1px solid red;
+        margin: 0 8px;
+        flex-shrink: 0;
+        flex-basis: 200px;
+      }
+      #container2 div.main {
+        background-color: #f1f1f1;
+        border: 1px solid red;
+        margin: 0 8px;
+        flex-grow: 1;
+      }
+      .nav ul {
+        display: flex;
+        padding: 0;
+        list-style-type: none;
+        background-color: #333;
+      }
+      .nav li a {
+        display: block;
+        color: white;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+      .nav li a:hover {
+        background-color: #111;
+      }
+      .nav .right {
+        margin-left: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="flex">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+    </div>
+
+    <br />
+    <div class="nav">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li>
+          <a href="#">News</a>
+        </li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">About</a></li>
+        <li class="right"><a href="#">Logout</a></li>
+      </ul>
+    </div>
+  </body>
+</html>

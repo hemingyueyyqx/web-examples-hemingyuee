@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #px1 {
+        font-size: 16px;
+        line-height: 2em;
+      }
+      #px2 {
+        font-size: 30px;
+        border: 1px solid black;
+      }
+      #em1 {
+        font-size: 0.5em;
+      }
+      h1 {
+        color: red;
+        text-align: center;
+      }
+      #para1 {
+        background-color: green;
+      }
+      .center {
+        text-align: center;
+        background-color: aqua;
+      }
+      #indent {
+        font-size: 20px;
+        text-indent: 2em;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>hello world</h1>
+    <form>
+      first name:
+      <br />
+      <input type="text" />
+      <br />
+      last name:
+      <br />
+      <input type="text" value="Wang" disabled />
+    </form>
+    <hr />
+    <form>
+      User name:
+      <br />
+      <input type="text" placeholder="请输入用户名" />
+      <br />
+      User password:
+      <br />
+      <input type="password" />
+    </form>
+    <hr />
+    <form>
+      <input type="checkbox" />
+      dog
+      <br />
+      <input type="checkbox" />
+      cat
+      <br />
+      <input type="checkbox" checked />
+      pig
+      <br />
+    </form>
+    <form>
+      Enter a date before 2024-05-01:
+      <br />
+      <input type="date" max="2024-05-01" />
+      <br />
+      Enter a date after 2024-05-01:
+      <br />
+      <input type="date" min="2024-05-01" />
+      <br />
+    </form>
+    <form action="">
+      <textarea cols="50" rows="4">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae sequi culpa, laborum quidem assumenda commodi dolor repellendus deleniti ullam necessitatibus ex libero laudantium? Velit error vel ut porro repellendus maxime.
+        
+        </textarea
+      >
+    </form>
+    <form>
+      <input list="locations" />
+      <datalist id="locations">
+        <option>丹青楼</option>
+        <option>锦绣楼</option>
+        <option>成栋楼</option>
+      </datalist>
+    </form>
+    <hr />
+    <p id="px1">This is a dog.</p>
+    <div id="px2">
+      This is a dog.
+      <p id="em1">This is a dog.</p>
+    </div>
+    <p id="indent">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est, aspernatur?</p>
+  </body>
+</html>

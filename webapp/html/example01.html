@@ -4,34 +4,106 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      div.container p {
+        background: yellow;
+      }
+      div.general ~ p {
+        background: yellow;
+      }
+      div.pseudo {
+        background-color: green;
+        color: white;
+        padding: 25px;
+        text-align: center;
+      }
+      div.pseudo:hover ~ p {
+        background-color: blue;
+      }
+      #nth p:nth-child(even) {
+        background-color: red;
+      }
+      #nth p:nth-child(odd) {
+        background-color: green;
+      }
+      input:invalid {
+        border: 2px solid red;
+      }
+      #f1 input {
+        width: 100%;
+      }
+      #f2 input[type='password'] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+      }
+      #f3 input {
+        width: 100%;
+        padding: 12px 20px;
+        border-radius: 4px;
+      }
+      #f4 input:focus {
+        border: 2px solid green;
+        outline: none;
+      }
+      button {
+        border-radius: 4px;
+        border: none;
+        padding: 16px 32px;
+        cursor: pointer; /*鼠标悬浮为手势*/
+        margin: 5px;
+      }
+      button[type='submit'] {
+        background: green;
+        color: white;
+        opacity: 0.7;
+      }
+      button[type='reset'] {
+        background-color: red;
+        color: white;
+        opacity: 0.7;
+      }
+      button[type='submit']:hover,
+      button[type='reset']:hover {
+        opacity: 1;
+      }
+    </style>
   </head>
   <body>
-    <div>
+    <div class="pseudo">
       <h1>Example 01</h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum blanditiis at ipsum optio
         perspiciatis, dolore et nobis itaque, fuga vero odit accusamus cupiditate! Ea ut quam
-        repudiandae animi recusandae, in corporis tenetur?<br>
-        <hr>
-        <hr style="width:50%;text-align:left;margin-left:0">
-        <hr style="height:2px;border-width:0;color:gray;background-color:gray">
-        <hr style="height:30px">
-        离离原上草，<br>
-        一岁一枯荣。<br>
-        野火烧不尽，<br>
-        春风吹又生。<br>
-        远芳侵古道，<br>
-        晴翠接荒城。<br>
-        又送王孙去，<br>
-        萋萋满别情。<br>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis, rerum.
-        Illo, quas ipsum consectetur asperiores soluta nostrum explicabo odio quibusdam.
-        Doloribus officiis porro ipsum rem quam impedit odit nisi cum!
-        Lorem, ipsum dolor.
-        Lorem ipsum dolor sit.
-        Soluta repudiandae voluptatem laudantium!
-        Asperiores illum animi omnis!
+        repudiandae animi recusandae, in corporis tenetur?
       </p>
+      <div>Lorem ipsum dolor sit.</div>
+      <div>
+        <p>Lorem, ipsum dolor.</p>
+      </div>
     </div>
+    <p>Lorem ipsum dolor sit.</p>
+    <p>Lorem, ipsum dolor.</p>
+    <div id="nth">
+      Lorem, ipsum dolor.
+      <p>Lorem, ipsum dolor.</p>
+      <p>Lorem ipsum dolor sit amet.</p>
+      <p>Lorem, ipsum dolor.</p>
+      <p>Doloribus, quod dignissimos.</p>
+    </div>
+    <form action="/register" method="post" id="f4">
+      <label>
+        用户名：
+        <input type="text" required />
+      </label>
+      <br />
+      <label>
+        密码：
+        <input type="password" required />
+      </label>
+      <br />
+      <button type="submit">提交</button>
+      <button type="reset">重置</button>
+    </form>
   </body>
 </html>
