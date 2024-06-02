@@ -14,6 +14,8 @@
         <option value="2">Web</option>
         <option value="3">Python</option>
       </select>
+      <br>
+      <span>对应的授课教师为：</span>
       <span id="teacherName"></span>
     </div>
     <script>
@@ -24,7 +26,7 @@
           { id: 3, courseName: 'Python', teacherName: 'ZHANG' }
         ]
         let course = courses.find((c) => c.id == id)
-        document.getElementById('teacherName').innerHTML = course != null ? course.teacherName : ''
+        document.getElementById('teacherName').innerHTML = course != null ? course.teacherName : '无授课教师'
       }
     </script>
   </body>
