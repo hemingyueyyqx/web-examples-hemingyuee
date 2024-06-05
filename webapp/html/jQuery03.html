@@ -3,11 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Thousands Separator</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
 </head>
 <body>
-    <div id="fade1" style="width: 80px;height: 80px;background-color: red;"></div>
-    <div id="fade2" style="width: 80px;height: 80px;background-color: green;"></div>
-    <div id="fade3" style="width: 80px;height: 80px;background-color: blue;"></div>
+    <label for="inputNumber">Enter a number:</label>
+    <input type="text" id="inputNumber" onchange="toThousands(this.value)">
+    <br>
+    <span id="formattedNumber"></span>
+    <script>
+        // 整数千分位添加逗号
+        /*function toThousands(num) {
+        num = num.toString()
+        let result = '';
+        while (num.length > 3) {
+            result = ',' + num.substring(num.length - 3) + result;
+            num = num.substring(0, num.length - 3);
+        }
+        result = num + result;
+        document.getElementById("inputNumber").value = result;
+    }*/
+    function toThousands(num) {
+            num = num.toString();
+            // 使用split()方法将数字字符串转换成字符数组
+            let numArray = num.split('');
+            let result = '';
+            let count = 0;
+            // 从数组尾部开始遍历
+            for (let i = numArray.length - 1; i >= 0; i--) {
+                // 在每三位数字之后添加逗号
+                result = numArray[i] + result;
+                count++;
+                if (count % 3 === 0 && i !== 0) {
+                    result = ',' + result;
+                }
+            }
+            document.getElementById("formattedNumber").textContent = result; // 将结果显示在formattedNumber元素中
+        }
+    /*
+    $(document).ready(function () {
+            $("#inputNumber").on("input", function () {
+                let number = $(this).val();
+                let formattedNumber = addCommas(number);
+                $("#formattedNumber").text(formattedNumber);
+            });
+            
+            function addCommas(number) {
+                return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            }
+        });*/
+    </script>   
 </body>
 </html>
