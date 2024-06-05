@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+        function removeDuplicatesByProperty(arr, propName) {
+    // 创建一个空对象，用于存储已经出现过的属性值
+    const seen = {};
+    // 使用filter()方法过滤数组，只保留第一次出现的属性值对应的对象
+    return arr.filter(item => {
+        // 获取当前对象的属性值
+        const propVal = item[propName];
+        // 如果该属性值在之前已经出现过，则返回false，否则将该属性值添加到seen对象中并返回true
+        return seen.hasOwnProperty(propVal) ? false : (seen[propVal] = true);
+    });
+    }
+    const objs = [{ id: 9 }, { id: 8 }, { id: 7 }, { id: 7 }, { id: 7 }, { id: 6 }];
+    const uniqueObjs = removeDuplicatesByProperty(objs, 'id');
+    console.log(uniqueObjs);
+</script>
+</body>
+</html>
