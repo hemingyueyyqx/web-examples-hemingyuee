@@ -1,66 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Course Selection</title>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<style>
-    label {
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+    <style>
+        * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .sidebar {
+        margin: 15px;
+        width: 200px;
+      }
+      .sidebar-group {
+        background-color: aliceblue;
+      }
+      .sidebar-group > ul {
+        list-style: none;
+      }
+      .sidebar-group > h2 {
+        background-color: rgb(122, 209, 238);
+        color: white;
+        padding: 10px 20px;
+      }
+      .sidebar-group > h2:hover {
+        cursor: pointer;
+        background-color: rgb(37, 173, 218);
+      }
+      .sidebar-group ul {
+        display: none;
+      }
+      .sidebar-group li a {
+        color: black;
+        text-decoration: none;
         display: block;
-    }
-</style>
+        transition: transform 0.5s;
+        padding: 10px 20px;
+      }
+      .sidebar-group li a:hover {
+        background-color: rgb(37, 173, 218);
+        color: white;
+        font-weight: bold;
+        transform: scale(1.1);
+      }
+    </style>
 </head>
 <body>
-
-<h2>Course Selection</h2>
-<form id="courseForm">
-    <label><input type="checkbox" name="course" value="Math" data-time="Mon 9:00-11:00"> Math (Mon 9:00-11:00)</label>
-    <label><input type="checkbox" name="course" value="Science" data-time="Tue 9:00-11:00"> Science (Tue 9:00-11:00)</label>
-    <label><input type="checkbox" name="course" value="History" data-time="Wed 9:00-11:00"> History (Wed 9:00-11:00)</label>
-    <!-- 添加更多课程... -->
-</form>
-
-<script>
-$(document).ready(function() {
-    // 当选择一个课程时
-    $('#courseForm').on('change', 'input[type="checkbox"]', function() {
-        var $checkbox = $(this);
-        var courseName = $checkbox.val();
-        var courseTime = $checkbox.data('time');
-
-        // 如果该课程被选中
-        if ($checkbox.is(':checked')) {
-            // 检查是否与已选课程时间冲突
-            if (hasTimeConflict(courseTime)) {
-                // 如果冲突，禁用该课程选项
-                $checkbox.prop('disabled', true);
-                alert('Course time conflict! Please choose another course.');
-            } else {
-                // 如果没有冲突，添加到课程时间表中
-                courseSchedule[courseName] = courseTime;
-            }
-        } else {
-            // 如果取消选择课程，从课程时间表中移除
-            delete courseSchedule[courseName];
-            // 启用该课程选项
-            $checkbox.prop('disabled', false);
-        }
-    });
-
-    // 检查课程时间冲突
-    function hasTimeConflict(time) {
-        for (var selectedCourse in courseSchedule) {
-            if (courseSchedule.hasOwnProperty(selectedCourse)) {
-                if (courseSchedule[selectedCourse] === time) {
-                    return true; // 存在冲突
-                }
-            }
-        }
-        return false; // 没有冲突
-    }
-});
-</script>
-
+     <div class="area sidebar">
+        <div class="sidebar-group">
+          <h2>云技术管理</h2>
+          <ul>
+            <li><a href="#">云服务器</a></li>
+            <li><a href="#">云数据库</a></li>
+            <li><a href="#">负载均衡</a></li>
+          </ul>
+        </div>
+        <div class="sidebar-group">
+          <h2>安全管理</h2>
+          <ul>
+            <li><a href="#">云盾控制台</a></li>
+            <li><a href="#">DDoS高防IP</a></li>
+            <li><a href="#">Web应用防火墙</a></li>
+            <li><a href="#">CA证书服务</a></li>
+          </ul>
+        </div>
+      </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+        $(".sidebar-group > h2").click(function () {
+            let ul = $(this).next("ul");
+            ul.slideToggle();
+            $(".sidebar-group > ul").not(ul).slideUp();
+        });  
+        });
+    </script>
 </body>
 </html>
