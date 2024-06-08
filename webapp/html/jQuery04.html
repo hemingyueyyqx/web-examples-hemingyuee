@@ -113,7 +113,7 @@
                     return $(this).val();
                 }).get();
                 // 取消所有禁用
-                $("input[name='courses']").prop('disabled', false);
+                checkboxs.prop('disabled', false);
                 checkedCourses.forEach(checkedCourseId => {
                     const checkedCourse = courses.find(course => course.id == checkedCourseId);
                     courses.forEach(course => {
