@@ -21,6 +21,23 @@
     const objs = [{ id: 9 }, { id: 8 }, { id: 7 }, { id: 7 }, { id: 7 }, { id: 6 }];
     const uniqueObjs = removeDuplicatesByProperty(objs, 'id');
     console.log(uniqueObjs);
+
+    // 记录代码执行开始时间
+   const startTime = performance.now();
+
+    // 在这里执行你的代码
+    const objs1 = [];
+    for (let i = 0; i < 100000; i++) {
+    objs1.push({ id: i });
+    }
+
+    // 记录代码执行结束时间
+    const endTime = performance.now();
+
+    // 计算执行时间
+    const executionTime = endTime - startTime;
+    console.log('代码执行时间（毫秒）：', executionTime);
+
 </script>
 </body>
 </html>
