@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th {
+        background-color: green;
+        color: white;
+      }
+      tbody tr:hover {
+        background-color: #f2f2f2;
+      }
+      table th,
+      table td {
+        text-align: center;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>名称</th>
+          <th>学分</th>
+          <th>起止周</th>
+          <th>时间</th>
+          <th>教师</th>
+          <th>是否选课</th>
+        </tr>
+      </thead>
+      <tbody>
+       
+      </tbody>
+    </table>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(function() {
+           const courses = [
+            {
+                id: 1,
+                name: '数据库原理',
+                credit: 3,
+                startWeek: 1,
+                endWeek: 10,
+                day: 1,
+                section: [1, 2],
+                teacher: '谭文涛'
+            },
+            {
+                id: 2,
+                name: 'Web开发技术',
+                credit: 2.5,
+                startWeek: 1,
+                endWeek: 8,
+                day: 1,
+                section: [3, 4],
+                teacher: '徐毅'
+            },
+            {
+                id: 3,
+                name: '托福阅读',
+                credit: 2,
+                startWeek: 1,
+                endWeek: 5,
+                day: 1,
+                section: [1, 2],
+                teacher: '李婧阳'
+            },
+            {
+                id: 4,
+                name: '高级英语试听',
+                credit: 2,
+                startWeek: 3,
+                endWeek: 10,
+                day: 1,
+                section: [3, 4],
+                teacher: '龙超越'
+            },
+            {
+                id: 5,
+                name: 'Web系统框架',
+                credit: 2.5,
+                startWeek: 10,
+                endWeek: 17,
+                day: 1,
+                section: [1, 2],
+                teacher: '王子阳'
+            }
+           ]; 
+            courses.forEach(course => {
+            const row = $('<tr>');
+            row.append(`<td>${course.id}</td> <td>${course.name}</td> <td>${course.credit}</td> <td>${course.startWeek} - ${course.endWeek}</td>
+            <td>周${course.day} / ${course.section[0]}${course.section[1]}节</td> <td>${course.teacher}</td>
+            <td><input type="checkbox" name="courses" value="${course.id}"></td>`);
+            $('table tbody').append(row);
+            });
+            const checkboxs =  $("input[name='courses']");
+              checkboxs.click(function() {
+                //checkedCourses 中存储的是所有被选中的 "courses" <input> 元素的值组成的数组
+                //map()遍历匹配的元素集合，并对每个元素执行一个函数，将每次函数调用的返回值组成一个新的 jQuery 对象
+                //get()将 jQuery 对象转换为普通的 JavaScript 数组
+                const selectedCourse = $("input[name='courses']:checked");
+                const checkedCourses = selectedCourse.map(function() {
+                    return $(this).val();
+                }).get();d
+                // 取消所有禁用
+                checkboxs.prop('disabled', false);
+                checkedCourses.forEach(checkedCourseId => {
+                    const checkedCourse = courses.find(course => course.id == checkedCourseId);
+                    courses.forEach(course => {
+                        if (course.id != checkedCourse.id &&
+                            course.day === checkedCourse.day &&
+                            (course.section[0] <= checkedCourse.section[1] && course.section[1] >= checkedCourse.section[0]) &&
+                            course.startWeek <= checkedCourse.endWeek &&
+                            course.endWeek >= checkedCourse.startWeek) {
+                                $(`input[value="${course.id}"]`).prop('disabled', true);
+                        }
+                    });
+                });
+            });
+        }); 
+    </script>
+  </body>
+</html>
