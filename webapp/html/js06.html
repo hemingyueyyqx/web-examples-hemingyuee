@@ -7,7 +7,7 @@
 </head>
 <body>
 <script>
-        function removeDuplicatesByProperty(arr, propName) {
+    function removeDuplicatesByProperty(arr, propName) {
     // 创建一个空对象，用于存储已经出现过的属性值
     const seen = {};
     // 使用filter()方法过滤数组，只保留第一次出现的属性值对应的对象
@@ -18,26 +18,103 @@
         return seen.hasOwnProperty(propVal) ? false : (seen[propVal] = true);
     });
     }
-    const objs = [{ id: 9 }, { id: 8 }, { id: 7 }, { id: 7 }, { id: 7 }, { id: 6 }];
-    const uniqueObjs = removeDuplicatesByProperty(objs, 'id');
-    console.log(uniqueObjs);
+    function removeDuplicatesByProperty1(arr, propName) {
+    const seen = {};
+    const uniqueArr = [];
 
-    // 记录代码执行开始时间
-   const startTime = performance.now();
+    for (let i = 0; i < arr.length; i++) {
+        const item = arr[i];
+        const propVal = item[propName];
 
-    // 在这里执行你的代码
-    const objs1 = [];
-    for (let i = 0; i < 100000; i++) {
-    objs1.push({ id: i });
+        if (!seen.hasOwnProperty(propVal)) {
+            seen[propVal] = true;
+            uniqueArr.push(item);
+        }
     }
 
-    // 记录代码执行结束时间
-    const endTime = performance.now();
+    return uniqueArr;
+}
 
-    // 计算执行时间
-    const executionTime = endTime - startTime;
-    
-
+    function remove1(arr, propName) {
+        let uniquearr = [];
+        for(let i =0; i < arr.length; i++) {
+            let obj = arr[i];
+            let isDuplicate = false;
+            for(let j = 0; j < uniquearr.length; j++) {
+                if(obj[propName] === uniquearr[j][propName]) {
+                  isDuplicate = true;
+                  break;  
+                }
+            }
+            if (!isDuplicate) {
+            uniquearr.push(obj);
+        }
+        }
+        return uniquearr
+    }
+    function remove2(arr, propertyName) {
+    let uniqueValues = new Set();
+    for (let obj of arr) {
+        uniqueValues.add(obj[propertyName]);
+    }
+    let uniqueObjs = [];
+    for (let value of uniqueValues) {
+        for (let obj of arr) {
+            if (obj[propertyName] === value) {
+                uniqueObjs.push(obj);
+                break;
+            }
+        }
+    }
+    return uniqueObjs;
+}
+    //const objs = [{ id: 9 }, { id: 8 }, { id: 7 }, { id: 7 }, { id: 7 }, { id: 6 }];
+    const objs = [];
+      for (let i = 0; i < 8_000_000; i++) {
+        objs.push({ id: Math.floor(Math.random() * 1_000) })
+      }
+    const uniqueObjs1 = removeDuplicatesByProperty1(objs, 'id');
+    console.log(uniqueObjs1);
+    /*const uniqueObjs2 = remove1(objs, "id");
+    console.log(uniqueObjs2);
+    const uniqueObjs3 = remove2(objs, "id");
+    console.log(uniqueObjs3);*/
+      //基于判断属性值的filter()方法
+    let Time1 = [];
+    let sumTime1 = 0;
+    for(let i=0; i<30;i++) {   
+    let startTime = performance.now();
+    const uniqueObjs1 = removeDuplicatesByProperty(objs, 'id');
+    let endTime = performance.now();
+    Time1[i] = endTime - startTime; 
+    sumTime1 +=Time1[i]; 
+    }
+    const aveTime1 = sumTime1 / 30;
+    console.log(aveTime1);
+    //基于判断属性值的for循环方法
+    let Time2 = [];
+    let sumTime2 = 0;
+    for(let i=0; i<30;i++) {   
+    let startTime = performance.now();
+    const uniqueObjs1 = removeDuplicatesByProperty1(objs, 'id');
+    let endTime = performance.now();
+    Time2[i] = endTime - startTime; 
+    sumTime2 +=Time2[i]; 
+    }
+    const aveTime2 = sumTime2 / 30;
+    console.log(aveTime2);
+    //set集合
+    /*let Time3 = [];
+    let sumTime3 = 0;
+    for(let i=0; i<30;i++) {   
+    let startTime = performance.now();
+    const uniqueObjs3 = remove2(objs, "id");
+    let endTime = performance.now();
+    Time3[i] = endTime - startTime; 
+    sumTime3 +=Time3[i]; 
+    }
+    const aveTime3 = sumTime3 / 30;
+    console.log(aveTime3);*/
 </script>
 </body>
 </html>
