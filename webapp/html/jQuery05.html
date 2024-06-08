@@ -71,10 +71,12 @@
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
-        $(".sidebar-group > h2").click(function () {
-            let ul = $(this).next("ul");
-            ul.slideToggle();
-            $(".sidebar-group > ul").not(ul).slideUp();
+        const h2 = $(".sidebar-group > h2");
+        h2.click(function () {
+            let ul1 = $(this).next("ul");
+            ul1.slideToggle();
+            const ul = $(".sidebar-group > ul");
+            ul.not(ul1).slideUp();
         });  
         });
     </script>
