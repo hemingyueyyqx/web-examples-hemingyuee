@@ -4,43 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thousands Separator</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
 </head>
 <body>
-    <label for="inputNumber">Enter a number:</label>
+    <label for="inputNumber">Input a number:</label>
     <input type="text" id="inputNumber" oninput="toThousands(this.value)">
     <br>
     <span id="formattedNumber"></span>
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
         // 整数千分位添加逗号
-        /*function toThousands(num) {
-        num = num.toString()
-        let result = '';
-        while (num.length > 3) {
-            result = ',' + num.substring(num.length - 3) + result;
-            num = num.substring(0, num.length - 3);
-        }
-        result = num + result;
-        document.getElementById("inputNumber").value = result;
-    }*/
     function toThousands(num) {
-            num = num.toString();
-            // 使用split()方法将数字字符串转换成字符数组
-            let numArray = num.split('');
-            let result = '';
-            let count = 0;
+        //判断输入的值是否为数字
+            if(!isNaN(num)) {
+                num = num.toString();
+                //判断输入的值是否为小数
+                if(num.includes('.')) {
+                    num = num.split('.');
+                    let numArray1 = num[0].split('');
+            let numArray2 = num[1].split('');
+            let result1 = '';
+            let result2 = '';
+            let count1 = 0;
+            let count2 = 0;
             // 从数组尾部开始遍历
-            for (let i = numArray.length - 1; i >= 0; i--) {
+            for (let i = numArray1.length - 1; i >= 0; i--) {
                 // 在每三位数字之后添加逗号
-                result = numArray[i] + result;
-                count++;
-                if (count % 3 === 0 && i !== 0) {
-                    result = ',' + result;
+                result1 = numArray1[i] + result1;
+                count1++;
+                if (count1 % 3 === 0 && i !== 0) {
+                    result1 = ',' + result1;
                 }
             }
+            for(let j = 0; j< numArray2.length; j++) {
+                result2 = result2 + numArray2[j];
+                count2++;
+                if (count2 % 3 === 0 && j != numArray2.length - 1) {
+                    result2 = result2 + ',';
+                }
+            }
+            let result = `${result1}.${result2}` ;
+
             document.getElementById("formattedNumber").innerHTML = result; // 将结果显示在formattedNumber元素中
+                }
+            else{
+                numArray = num.split('');
+                let result0 = '';
+                let count = 0;
+                for (let i = numArray.length - 1; i >= 0; i--) {
+                // 在每三位数字之后添加逗号
+                result0 = numArray[i] + result0;
+                count++;
+                if (count % 3 === 0 && i !== 0) {
+                    result0 = ',' + result0;
+                }
+            }
+            document.getElementById("formattedNumber").innerHTML = result0;
+            }
+            
+            }
+            else{document.getElementById("formattedNumber").innerHTML = "请输入数字";}
         }
     
     /*$(document).ready(function () {
