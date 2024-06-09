@@ -134,6 +134,7 @@
                     }
                     conflictMap[course.id] = conflicts;
                 }
+                //console.log(conflictMap);
             }
               
     // 设置冲突课程复选框状态
@@ -144,6 +145,7 @@
             checkbox.prop('disabled', disabled);
         }
     }
+    //初始化
             calculateComflict();
             const checkboxs  = $("input[name = 'courses']");
             checkboxs.click(function () {
