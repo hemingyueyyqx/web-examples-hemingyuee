@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    const array = Array(50000000).fill(1);
+    //fori 17.99
+    let Time1 = [];
+    let sumTime1 = 0;
+    for(let i=0; i<30;i++) {   
+    let startTime = performance.now();
+    for (let i = 0; i < array.length; i++) {}
+    let endTime = performance.now();
+    Time1[i] = endTime - startTime; 
+    sumTime1 +=Time1[i]; 
+    }
+    const aveTime1 = sumTime1 / 30;
+    console.log(aveTime1);
+    //forEach 81.54
+    let Time2 = [];
+    let sumTime2 = 0;
+    for(let i=0; i<30;i++) {   
+    let startTime = performance.now();
+    array.forEach((element) => {});
+    let endTime = performance.now();
+    Time2[i] = endTime - startTime; 
+    sumTime2 +=Time2[i]; 
+    }
+    const aveTime2 = sumTime2 / 30;
+    console.log(aveTime2);
+    //for-of 42.56
+    let Time3 = [];
+    let sumTime3 = 0;
+    for(let i=0; i<30;i++) {   
+    let startTime = performance.now();
+    for (const element of array) {}
+    let endTime = performance.now();
+    Time3[i] = endTime - startTime; 
+    sumTime3 +=Time3[i]; 
+    }
+    const aveTime3 = sumTime3 / 30;
+    console.log(aveTime3);
+
+
+</script>
+</body>
+</html>
